@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+</head>
+<body>
+
+<button>Down Vote</button>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type='text/javascript'>
+
+  $('button').on('click', function(){
+      console.log("clicked");
+       
+  
+  
+        var queryURL = "https://rest.bandsintown.com/artists/adelle/events?app_id=1629ec16a6eb32280cb56544c3b93ea4";
+        console.log(queryURL);    
+  
+        $.ajax({url:queryURL, method: 'GET'})
+            .done(function(response){
+                 console.log(response);
+                //  $('body').append("<p>Description: "+response.description"</p>");
+            })
+
+        var queryURL = "https://newsapi.org/v2/top-headlines?country=us&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
+        console.log(queryURL);    
+  
+        $.ajax({url:queryURL, method: 'GET'})
+            .done(function(response){
+                 console.log(response);
+                 for(var i=0; i<3; i++){
+                 var k = i;  
+                 $('body').append("<h3> "+response.articles[k].title+"</>");
+                 $('body').append("<p>Article: "+response.articles[k].description+"</p>");
+                 $('body').append("<img src='"+response.articles[k].urlToImage+"'>");
+              }
+            
+            })
+
+
+          var queryURL = " https://newsapi.org/v2/everything?q=nba&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
+        console.log(queryURL);    
+  
+        $.ajax({url:queryURL, method: 'GET'})
+            .done(function(response){
+                 console.log(response);
+                 for(var i=0; i<3; i++){
+                 $('body').append("<h3> "+response.articles[i].title+"</>");
+                 $('body').append("<p>Article: "+response.articles[i].description+"</p>");
+                 $('body').append("<img src='"+response.articles[i].urlToImage+"'>");
+              } 
+            })
+          
+        })        
+  
+  </script>
+</body>
+</html>
