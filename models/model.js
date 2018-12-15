@@ -1,62 +1,79 @@
+var Sequelize = require("sequelize");
+var sequelize = require("../config/connection");
 
-module.exports = function(sequelize, DataTypes) {
+var model = {};
 
-  var User = sequelize.define('User', {
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true
-      }
-    },
-    gender: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      values: ['M', 'F']
-    },
-    age: {
-      type: DataTypes.INTEGER,
-      allowNull: false
+var user = sequelize.define('Users', {
+  email: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    unique: true,
+    validate: {
+      isEmail: true
     }
-  });
-  
-  var Category = sequelize.define('Category', {
-    category_name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
-  });
+  },
+  gender: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    values: ['M', 'F']
+  },
+  age: {
+    type: Sequelize.INTEGER,
+    allowNull: false
+  }
+});
 
-  var UserCategory = sequelize.define('UserCategory', {
-    category_ranking: {
-        type: DataTypes.INTEGER
-    }
-  });
+var category = sequelize.define('Categories', {
+  category_name: {
+    type: Sequelize.STRING,
+    allowNull: false
+  }
+});
 
-  var Country = sequelize.define("Countries", { 
-    country_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    }
-  });
-  
-  User.belongsToMany(Category, {
-    through: UserCategory
-  });
-  
-  Category.belongsToMany(User, {
-    through: UserCategory
-  });
+var userCategory = sequelize.define('UserCategory', {
+  category_ranking: {
+      type: Sequelize.INTEGER
+  }
+});
 
-  Country.belongsToMany(User, {
-    through: 'UserCountries'
-  });
+var country = sequelize.define('Countries', { 
+  country_name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  country_code: {
+    type: Sequelize.STRING,
+    allowNull: false
+  }
+});
 
-  User.belongsToMany(Country, {
-    through: 'UserCountries'
-  });
+var userCountries = sequelize.define('UserCountries', {});
 
-  return {User, Category, Country};
+user.belongsToMany(category, {
+  through: userCategory
+});
 
-}
+category.belongsToMany(user, {
+  through: userCategory
+});
+
+country.belongsToMany(user, {
+  through: userCountries
+});
+
+user.belongsToMany(country, {
+  through: userCountries
+});
+
+country.sync();
+category.sync();
+user.sync();
+userCategory.sync();
+userCountries.sync();
+
+
+model.User = user;
+model.Category = category;
+model.Country = country;
+
+module.exports = model;
