@@ -10,24 +10,73 @@
 </head>
 <body>
 
-<button>Down Vote</button>
+<button id = "Load">Load</button>   
+<button id = "downvote">Down Vote</button>
+<button id = "reset">Reset</button>
+
+<div id = "newsfeed"></div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script type='text/javascript'>
 
-  $('button').on('click', function(){
-      console.log("clicked");
-       
+$('#Load').on('click', function(){
+    //   var x = $(this).data("search");
+      console.log("clicked load");
+
+        var queryURL = "https://rest.bandsintown.com/artists/twenty%20one%20pilots/events?app_id=1629ec16a6eb32280cb56544c3b93ea4";
+        console.log(queryURL);    
   
-  
-        var queryURL = "https://rest.bandsintown.com/artists/adelle/events?app_id=1629ec16a6eb32280cb56544c3b93ea4";
+        $.ajax({url:queryURL, method: 'GET'})
+            .done(function(response){
+                var i = Math.floor(Math.random() * 10);
+                 console.log(i);  
+                 for(var i; i<5; i++){
+                 console.log(response);
+                 $('#newsfeed').prepend("<p>Description: "+response[i].description+"</p>");
+            }
+        })
+
+                var queryURL = "https://newsapi.org/v2/top-headlines?country=us&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
         console.log(queryURL);    
   
         $.ajax({url:queryURL, method: 'GET'})
             .done(function(response){
                  console.log(response);
-                //  $('body').append("<p>Description: "+response.description"</p>");
+                //  var i = Math.floor(Math.random() * 21);
+                //  console.log(i);  
+                //  for(var i; i<5; i++){
+                 $('#newsfeed').prepend("<h3> "+response.articles[1].title+"</>");
+                 $('#newsfeed').prepend("<p>Article: "+response.articles[1].description+"</p>");
+                 $('#newsfeed').prepend("<img src='"+response.articles[1].urlToImage+"'>");
+              
+                 })
+        
+        
+          var queryURL = " https://newsapi.org/v2/everything?q=nba&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
+        console.log(queryURL);    
+  
+        $.ajax({url:queryURL, method: 'GET'})
+            .done(function(response){
+                 console.log(response);
+                 var i = Math.floor(Math.random() * 21);
+                 console.log(i);  
+                 for(var i; i<5; i++){
+                 $('#newsfeed').prepend("<h3> "+response.articles[i].title+"</>");
+                 $('#newsfeed').prepend("<p>Article: "+response.articles[i].description+"</p>");
+                 $('#newsfeed').prepend("<img src='"+response.articles[i].urlToImage+"'>");
+              
+            
+           }
             })
+        })
+
+
+  $('#downvote').on('click', function(){
+    //   var x = $(this).data("search");
+      console.log("clicked down vote");
+    //   if (x === "Down Vote") {
+  
+ 
 
         var queryURL = "https://newsapi.org/v2/top-headlines?country=us&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
         console.log(queryURL);    
@@ -35,31 +84,53 @@
         $.ajax({url:queryURL, method: 'GET'})
             .done(function(response){
                  console.log(response);
-                 for(var i=0; i<3; i++){
-                 var k = i;  
-                 $('body').append("<h3> "+response.articles[k].title+"</>");
-                 $('body').append("<p>Article: "+response.articles[k].description+"</p>");
-                 $('body').append("<img src='"+response.articles[k].urlToImage+"'>");
-              }
-            
+                 var i = Math.floor(Math.random() * 21);
+                 console.log(i);  
+                 for(var i; i<5; i++){
+                 $('#newsfeed').prepend("<h3> "+response.articles[i].title+"</>");
+                 $('#newsfeed').prepend("<p>Article: "+response.articles[i].description+"</p>");
+                 $('#newsfeed').prepend("<img src='"+response.articles[i].urlToImage+"'>");
+              
+                 }
             })
-
-
+        
+        
           var queryURL = " https://newsapi.org/v2/everything?q=nba&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
         console.log(queryURL);    
   
         $.ajax({url:queryURL, method: 'GET'})
             .done(function(response){
                  console.log(response);
-                 for(var i=0; i<3; i++){
-                 $('body').append("<h3> "+response.articles[i].title+"</>");
-                 $('body').append("<p>Article: "+response.articles[i].description+"</p>");
-                 $('body').append("<img src='"+response.articles[i].urlToImage+"'>");
-              } 
+                 var i = Math.floor(Math.random() * 21);
+                 console.log(i);  
+                 for(var i; i<5; i++){
+                 $('#newsfeed').prepend("<h3> "+response.articles[i].title+"</>");
+                 $('#newsfeed').prepend("<p>Article: "+response.articles[i].description+"</p>");
+                 $('#newsfeed').prepend("<img src='"+response.articles[i].urlToImage+"'>");
+              
+            
+           }
             })
-          
-        })        
-  
+        })
+        
+    
+    
+
+    $('#reset').on('click', function(){
+    // //   var x = $(this).data("search");
+    // //   console.log("clicked" + " " + x);
+    // //   if (x === "Reset") {
+    // //   function reset(){
+        console.log("clicked reset");
+        $("#newsfeed").empty("");
+        
+      })
+//     }
+// })
+
+
   </script>
+
+
 </body>
 </html>
