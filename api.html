@@ -10,7 +10,15 @@
 </head>
 <body>
 
-<button id = "Load">Load</button>   
+
+    <div id="tfheader">
+        <form id="tfnewsearch" method="get" action="search">
+            <input type="text" class="tftextinput" id="tftextinput" name="q" size="21" maxlength="120"><input type="submit" value="search" class="tfbutton">
+        </form>
+    <div class="tfclear"></div>
+    </div>
+
+ 
 <button id = "downvote">Down Vote</button>
 <button id = "reset">Reset</button>
 
@@ -19,25 +27,28 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script type='text/javascript'>
 
-$('#Load').on('click', function(){
+
+$('#tftextinput').on('click', function(){
+a.addEventListener('submit', function(e) {   
+var a = document.getElementById('tfnewsearch');
+var b = document.getElementById('tftextinput').value;  
+console.log(b); 
+function submit();
+})
+  }) 
+
+
     //   var x = $(this).data("search");
-      console.log("clicked load");
-
-        var queryURL = "https://rest.bandsintown.com/artists/twenty%20one%20pilots/events?app_id=1629ec16a6eb32280cb56544c3b93ea4";
-        console.log(queryURL);    
-  
-        $.ajax({url:queryURL, method: 'GET'})
-            .done(function(response){
-                var i = Math.floor(Math.random() * 10);
-                 console.log(i);  
-                 for(var i; i<5; i++){
-                 console.log(response);
-                 $('#newsfeed').prepend("<p>Description: "+response[i].description+"</p>");
-            }
-        })
-
-                var queryURL = "https://newsapi.org/v2/top-headlines?country=us&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
-        console.log(queryURL);    
+    var a = document.getElementById('tfnewsearch');
+        a.addEventListener('submit',function (e) {
+        e.preventDefault();
+        $('#tftextinput').on('click', function(){
+        function submit(){    
+        console.log(b);
+        console.log("clicked submit");
+        var queryURL = " https://newsapi.org/v2/everything?q="+b+"&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
+        console.log(queryURL);   
+           }
   
         $.ajax({url:queryURL, method: 'GET'})
             .done(function(response){
@@ -45,9 +56,40 @@ $('#Load').on('click', function(){
                 //  var i = Math.floor(Math.random() * 21);
                 //  console.log(i);  
                 //  for(var i; i<5; i++){
-                 $('#newsfeed').prepend("<h3> "+response.articles[1].title+"</>");
-                 $('#newsfeed').prepend("<p>Article: "+response.articles[1].description+"</p>");
-                 $('#newsfeed').prepend("<img src='"+response.articles[1].urlToImage+"'>");
+                 $('#newsfeed').append("<h3> "+response.articles[1].title+"</>");
+                 $('#newsfeed').append("<p>Article: "+response.articles[1].description+"</p>");
+                 $('#newsfeed').append("<img src='"+response.articles[1].urlToImage+"'>");
+              
+                 })
+                })
+            })        
+        
+
+        // var queryURL = "https://rest.bandsintown.com/artists/"+b+"/events?app_id=1629ec16a6eb32280cb56544c3b93ea4";
+        // console.log(queryURL);    
+  
+        // $.ajax({url:queryURL, method: 'GET'})
+        //     .done(function(response){
+        //         var i = Math.floor(Math.random() * 10);
+        //          console.log(i); 
+        //         //  for(var i; i<5; i++){
+        //          console.log(response);
+        //          $('#newsfeed').append("<p>Description: "+response[i].description+"</p>");
+        //     })
+        // // })
+
+                var queryURL = "https://newsapi.org/v2/top-headlines?country=us&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
+        console.log(queryURL);    
+  
+        $.ajax({url:queryURL, method: 'GET'})
+            .done(function(response){
+                 console.log(response);
+                    // var i = Math.floor(Math.random() * 21);
+                    // console.log(i);  
+                //  for(var i; i<5; i++){
+                 $('#newsfeed').append("<h3> "+response.articles[1].title+"</>");
+                 $('#newsfeed').append("<p>Article: "+response.articles[1].description+"</p>");
+                 $('#newsfeed').append("<img src='"+response.articles[1].urlToImage+"'>");
               
                  })
         
@@ -58,17 +100,19 @@ $('#Load').on('click', function(){
         $.ajax({url:queryURL, method: 'GET'})
             .done(function(response){
                  console.log(response);
-                 var i = Math.floor(Math.random() * 21);
-                 console.log(i);  
-                 for(var i; i<5; i++){
-                 $('#newsfeed').prepend("<h3> "+response.articles[i].title+"</>");
-                 $('#newsfeed').prepend("<p>Article: "+response.articles[i].description+"</p>");
-                 $('#newsfeed').prepend("<img src='"+response.articles[i].urlToImage+"'>");
+                //  var i = Math.floor(Math.random() * 21);
+                //  console.log(i);  
+                //  for(var i; i<5; i++){
+                 $('#newsfeed').append("<h3> "+response.articles[1].title+"</>");
+                 $('#newsfeed').append("<p>Article: "+response.articles[1].description+"</p>");
+                 $('#newsfeed').append("<img src='"+response.articles[1].urlToImage+"'>");
               
             
-           }
-            })
+           })
+            
         })
+    })
+
 
 
   $('#downvote').on('click', function(){
@@ -86,16 +130,16 @@ $('#Load').on('click', function(){
                  console.log(response);
                  var i = Math.floor(Math.random() * 21);
                  console.log(i);  
-                 for(var i; i<5; i++){
+                //  for(var i; i<5; i++){
                  $('#newsfeed').prepend("<h3> "+response.articles[i].title+"</>");
                  $('#newsfeed').prepend("<p>Article: "+response.articles[i].description+"</p>");
                  $('#newsfeed').prepend("<img src='"+response.articles[i].urlToImage+"'>");
               
-                 }
-            })
+                 })
+    
         
         
-          var queryURL = " https://newsapi.org/v2/everything?q=nba&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
+          var queryURL = " https://newsapi.org/v2/everything?q="+b+"&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
         console.log(queryURL);    
   
         $.ajax({url:queryURL, method: 'GET'})
@@ -113,7 +157,7 @@ $('#Load').on('click', function(){
             })
         })
         
-    
+     
     
 
     $('#reset').on('click', function(){
