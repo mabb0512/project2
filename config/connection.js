@@ -26,7 +26,12 @@ sequelize.authenticate()
   })
   .catch(err => {
     console.error('Unable to connect to the database:', err);
-  });
+});
+
+// force: true will drop the table if it already exists
+sequelize.sync({force: false}).then(() => {
+  console.log('Drop and Resync with { force: true }');
+});
 
 // Exports the connection for other files to use
 module.exports = sequelize;

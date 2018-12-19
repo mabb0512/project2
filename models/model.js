@@ -50,30 +50,33 @@ var country = sequelize.define('Countries', {
 var userCountries = sequelize.define('UserCountries', {});
 
 user.belongsToMany(category, {
-  through: userCategory
+  through: userCategory,
+  foreignKey: 'UserId',
+  otherKey: 'CategoryId'
 });
 
 category.belongsToMany(user, {
-  through: userCategory
+  through: userCategory,
+  foreignKey: 'CategoryId',
+  otherKey: 'UserId'
 });
 
 country.belongsToMany(user, {
-  through: userCountries
+  through: userCountries,
+  foreignKey: 'CountryId',
+  otherKey: 'UserId'
 });
 
 user.belongsToMany(country, {
-  through: userCountries
+  through: userCountries,
+  foreignKey: 'UserId',
+  otherKey: 'CountryId'
 });
-
-country.sync();
-category.sync();
-user.sync();
-userCategory.sync();
-userCountries.sync();
-
 
 model.User = user;
 model.Category = category;
 model.Country = country;
+model.UserCategory = userCategory;
+model.UserCountry = userCountries;
 
 module.exports = model;
