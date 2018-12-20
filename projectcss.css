@@ -1,0 +1,16 @@
+/* 2/12 5/12 5/12 */
+#news {
+        color: blue;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 40px;
+        float: left;
+    }
+
+#mid-section {
+    float: left;
+}
+
+
+#whatever {
+    float: right;
+}
