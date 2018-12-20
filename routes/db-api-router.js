@@ -41,22 +41,24 @@ router.get("/api/countries", function(req, res) {
 
 router.post("/api/addUser", function(req, res) {
 
+    console.log(req.body);
+
     //has to be modified depending on front end form.
-    var user = req.body.user;
+    //var user = req.body.user;
     var category = req.body.category;
     var country = req.body.country;
     var categoryRanking = req.body.ranking;
     var dbUsers = [];
 
     //for testing purposes only
-    // var user = {
-    //     email: "test17@test.com",
-    //     age: 25,
-    //     gender: 'M'
-    // };
-    // var category = 'health';
-    // var categoryRanking = 4;
-    // var country = 'United States';
+    var user = {
+        email: req.body.email,
+        age: req.body.age,
+        gender: req.body.age
+    };
+    var category = 'health';
+    var categoryRanking = 4;
+    var country = 'United States';
 
     db.User.create(user).then(function (dbUser) {
 
@@ -102,13 +104,35 @@ router.post("/api/addUser", function(req, res) {
     });;
 });
 
-router.get("/api/user/:id", function(req, res) {
+router.get("/api/userById/:id", function(req, res) {
 
     var userid = req.params.id;
     
     db.User.findAll({
         where: {
             id: userid
+        },
+        include: [
+            {
+                model: db.Category
+            },
+            {
+                model: db.Country
+            }
+        ]
+    }).then(function(dbUsers) {
+        res.json(dbUsers);
+    });
+
+});
+
+router.get("/api/userByEmail/:email", function(req, res) {
+
+    var email = req.params.email;
+    
+    db.User.findAll({
+        where: {
+            email: email
         },
         include: [
             {
