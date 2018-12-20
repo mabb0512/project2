@@ -5,7 +5,25 @@
     </head>
 
   <body>
-    <div>Just to display some content</div>
+    <div>
+      <form action="/api/addUser" method="post">
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" class="input-box" placeholder=""
+            maxlength="100" value=''}>
+        </div>
+        <div class="input-group">
+          <label for="gender">Gender</label>
+          <input type="text" name="gender" id="gender" class="input-box" placeholder=""
+          maxlength="100" value=''>
+        </div>
+        <div class="input-group">
+          <label for="age">Age</label>
+          <input type="number" name="age" id="age" class="input-box" placeholder="" value=''>
+        </div>
+        <button type="submit" class="btn btn-reverse">submit</button>
+      </form>
+    </div>
 
   </body>
 
