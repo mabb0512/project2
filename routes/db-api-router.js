@@ -52,6 +52,7 @@ router.post("/api/addUser", function(req, res) {
 
     //for testing purposes only
     var user = {
+        id: req.body.id,
         email: req.body.email,
         age: req.body.age,
         gender: req.body.age
@@ -192,6 +193,7 @@ router.get("/api/randomUsers", function (req, res) {
     for (var i = 1; i < maxUsers; i++) {
 
        var user = {
+           id: getId(),
            email: prefix+i+domain,
            age: getAge(),
            gender: getGender()

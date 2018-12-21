@@ -29,28 +29,19 @@
 
 
 $('#tftextinput').on('click', function(){
-a.addEventListener('submit', function(e) {   
 var a = document.getElementById('tfnewsearch');
+a.addEventListener('submit', function(e) {   
 var b = document.getElementById('tftextinput').value;  
 console.log(b); 
-function submit();
-})
-  }) 
-
-
-    //   var x = $(this).data("search");
-    var a = document.getElementById('tfnewsearch');
-        a.addEventListener('submit',function (e) {
-        e.preventDefault();
-        $('#tftextinput').on('click', function(){
-        function submit(){    
-        console.log(b);
+e.preventDefault();
+// $('#tftextinput').on('click', function(){
+    // function submit(){    
+        // console.log(b);
         console.log("clicked submit");
         var queryURL = " https://newsapi.org/v2/everything?q="+b+"&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
         console.log(queryURL);   
-           }
-  
-        $.ajax({url:queryURL, method: 'GET'})
+        
+           $.ajax({url:queryURL, method: 'GET'})
             .done(function(response){
                  console.log(response);
                 //  var i = Math.floor(Math.random() * 21);
@@ -59,10 +50,20 @@ function submit();
                  $('#newsfeed').append("<h3> "+response.articles[1].title+"</>");
                  $('#newsfeed').append("<p>Article: "+response.articles[1].description+"</p>");
                  $('#newsfeed').append("<img src='"+response.articles[1].urlToImage+"'>");
-              
                  })
-                })
-            })        
+                 })
+             }); 
+    // function submit()
+
+
+
+    //   var x = $(this).data("search");
+    // var a = document.getElementById('tfnewsearch');
+        // a.addEventListener('submit',function (e) {
+       
+        
+  
+             
         
 
         // var queryURL = "https://rest.bandsintown.com/artists/"+b+"/events?app_id=1629ec16a6eb32280cb56544c3b93ea4";
@@ -110,8 +111,8 @@ function submit();
             
            })
             
-        })
-    })
+        
+    
 
 
 

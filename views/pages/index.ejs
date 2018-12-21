@@ -2,6 +2,9 @@
 <html lang="en">
     <head>
         <% include ../partial/head %>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
 
   <body>
@@ -10,7 +13,7 @@
         <div class="input-group">
           <label for="email">Email</label>
           <input type="email" name="email" id="email" class="input-box" placeholder=""
-            maxlength="100" value=''}>
+            maxlength="100" value=''>
         </div>
         <div class="input-group">
           <label for="gender">Gender</label>
@@ -20,6 +23,17 @@
         <div class="input-group">
           <label for="age">Age</label>
           <input type="number" name="age" id="age" class="input-box" placeholder="" value=''>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Categories
+          <span class="caret"></span></button>
+          <input type="dropdown" name="categories" id="categories"ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Sports</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Politics</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Technology</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Music</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Science</a></li>
+          </ul>
         </div>
         <button type="submit" class="btn btn-reverse">submit</button>
       </form>
