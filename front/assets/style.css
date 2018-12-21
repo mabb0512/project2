@@ -5,13 +5,29 @@
 .menu{ height: 100vh;}
 
 div.nav.flex-column {
-	position: fixed;   
-	justify-content: space-between;
-    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    justify-content: space-between;
+    height: 100vh;
+    width: 8.333333vw;
 }
-.news_cat_img{height: 80vh;}
-.news_cat_img img{ width: 100%;
-	height:auto;}
+.news_cat_img{
+	height: 80vh;
+    vertical-align: middle;
+    height: 550px;
+    background-size: cover;
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+    width: 55.5vw;
+}
+.news_cat_img img{    
+	 max-width: none;
+    height: 100%;
+    position: absolute;}
 a.contact_us{
 	background-color: #f7d781;
 }
@@ -20,6 +36,7 @@ h1{
 	color:#f7d781;
 	font-size:4.5rem;
 	text-decoration: #f7d781 underline;
+	z-index: 100;
 }
 h1.moveHeaderLeft{
 	position: absolute;
@@ -31,7 +48,6 @@ h1.moveHeaderRight{
     left: 100%;
     top: 100px;
 }
-section.news{padding-left: 10px;}
 
 .news_cat_text {
     display: flex;
@@ -41,14 +57,17 @@ section.news{padding-left: 10px;}
 	text-align: center;
 	position:relative
 }
-.logo{
-	background-image: url("img/img_1.jpg");
-	background-color: #cccccc;
-	background-position: center; 
-	background-repeat: no-repeat; 
-	background-size: cover; 
-	width: 70px;
-	height: 70px;
+.news_cat_text.no_padding.col-3 {
+    width: 33.333332vw;
+    flex: 0 0 33.333332%;
+}
+
+
+.logo a, .logo a:hover, .logo a:focus{
+	text-decoration: none;
+	color:black;
+	font-weight: bold;
+	font-size: 40px;
 }
 
 .img1, .img2, .img3{
@@ -64,7 +83,7 @@ section.news{padding-left: 10px;}
 .img3{background-image: url("img/img_3.jpg");}
 
 
-.nav-link, a.contact_us{padding: 2px;}
+.nav-link, a.contact_us{padding: 2px; font-weight: bold;}
 a.nav-link {
     color: black;
 	font-size: 16px;
@@ -95,6 +114,7 @@ a.nav-link:before {
 	text-decoration: none;
 	padding: 20px;
   }
+  li.nav-item {text-align: center;}
   .news_cat_text p.subtext{
 	  color:#a6a6a6;
   }
@@ -102,23 +122,76 @@ a.nav-link:before {
 
     /*graph Page*/
 
-	.graphContainer{
+	.graphContainer {
 		text-align: center;
-		padding-left: 100px;
-	  	padding-right: 100px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
-	
+	.explain {
+		width: 16.666666vw;
+	}
+	.dotMin {
+		height: 50px;
+		width: 50px;
+		background-color: #929fde;
+		border-radius: 50%;
+		display: inline-block;
+	  }
+	  .dotMax {
+		height: 100px;
+		width: 100px;
+		background-color: #929fde;
+		border-radius: 50%;
+		display: inline-block;
+	  }
+	  span.line {
+		width: 50px;
+		height: 10px;
+		background-color: #d4324c;
+		display: inline-block;
+	}
+	.data{justify-content: space-between;
+		align-items: center;
+	}
+	figcaption{font-size: 12px;}
+	.graphContainer p {width: 58.3333331vw;}
+	.graphContainer h1 {
+		margin-bottom: 60px;
+	}
+	/*lines for bg*/
+	.o-lines_background {
+		position: fixed;
+		z-index: 10;
+		pointer-events: none;
+		overflow: hidden;
+		width: 101vw;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+	span.o-lines-background_line {
+		border-right: 1px solid rgba(0,0,0,.08);
+		z-index: 0;
+		flex: 0 0 8.333333%;
+		width: 8.333333vw;
+		height: 100vh;
+		position: relative;
+		display: inline-block;
+		overflow: hidden;
+	}
 
   /*animation*/
   h1.firstH, p{
 	position: relative;
-	-webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+	-webkit-animation-name: firstH; /* Safari 4.0 - 8.0 */
 	-webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
-	animation-name: example;
+	animation-name: firstH;
 	animation-duration: 2s;
   }
-  
-  @keyframes example {
+  @keyframes firstH {
 	0%   { left:-100px;opacity: 0 }
 	100%  { left:0;opacity: 1}
   }

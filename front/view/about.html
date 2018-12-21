@@ -28,9 +28,24 @@
               .leader{stroke:	#d4324c;}
     </style>
 	<div class="main container-fluid d-flex no_padding">
+      <div class="o-lines_background">
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+			</div>
 		<section class="menu col-1 no_padding">
 			<div class=" nav flex-column">
-				<div class="logo"></div>
+          <div class="logo"><a href="index.html">D-News</a></div>>
 			<ul class="nav flex-column">
 				<li class="nav-item">
 				 <a class="nav-link" href="sport.html">Sport</a>
@@ -52,13 +67,29 @@
 				</li>
 			</ul>
 			
-				<a href="about.html" class="contact_us">About Us</a>
+			<a href="about.html" class="contact_us">About Us</a>
 			
 			</div>
 		</section>
 		<section class="news col-11 no_padding graphContainer">
-		
-                <div id="graph"></div>
+      
+      <h1>Our readers by age categories</h1>         
+      <div class="data d-flex">
+      <div id="graph"></div>
+      <div class="explain">
+        <figure>
+         <div><span class="dot dotMin"></span>
+          <span class="dot dotMax"></span>
+          </div>
+          <figcaption>The size of the circle corresponds to the number of people are in the age category.</figcaption>
+          <div>
+              <span class="line"></span>
+          </div>
+          <figcaption>The red outline highlights the most popular category inside of the age category.</figcaption>
+          </figure>
+      </div>
+      </div>
+
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
                     printer took a galley of type and scrambled it to make a type specimen book. It
