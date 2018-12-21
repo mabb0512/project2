@@ -14,6 +14,15 @@ var PORT = process.env.PORT || 3000;
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
+// index page
+app.get('/', function(req, res) {
+    res.render('pages/index');
+});
+
+// politics page
+app.get('/politics', function(req, res) {
+    res.render('./politics');
+});
 // Requiring our models for syncing
 // var db = require("./models");
 

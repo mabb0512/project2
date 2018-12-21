@@ -196,7 +196,8 @@ router.get("/api/randomUsers", function (req, res) {
            id: getId(),
            email: prefix+i+domain,
            age: getAge(),
-           gender: getGender()
+           gender: getGender(),
+           categories: getCategories()
        }
        
        db.User.create(user).then(function (dbUser) {

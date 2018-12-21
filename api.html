@@ -54,17 +54,24 @@ e.preventDefault();
                  })
              }); 
     // function submit()
+    $(document).delegate('#loadedPageContent', "pageinit", function() {
+        $("#newsfeed").load(url + " politics", function() {
+    $('#loadedPageContent').append($(tmpId + " article").html());
+})
+$.mobile.changePage("politics.ejs", {transition:"pop"});
 
+});
 
 
     //   var x = $(this).data("search");
     // var a = document.getElementById('tfnewsearch');
         // a.addEventListener('submit',function (e) {
        
-        
-  
-             
-        
+        //    module.exports= $( "#politics" ).append( "<p>Test</p>" );
+        //    module.exports= $( "#science" ).append( "<p>Test</p>" );
+        //    module.exports= $( "#sports" ).append( "<p>Test</p>" );   
+        //    module.exports= $( "#technology" ).append( "<p>Test</p>" );
+        //    module.exports= $( "#music" ).append( "<p>Test</p>" );
 
         // var queryURL = "https://rest.bandsintown.com/artists/"+b+"/events?app_id=1629ec16a6eb32280cb56544c3b93ea4";
         // console.log(queryURL);    
