@@ -3,21 +3,25 @@
 
 <head>
   <% include ../partial/head %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="jquery-3.3.1.min.js"></script>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+   
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous"></script>
+  
     <!--Import materialize.css-->
     <!-- Compiled and minified CSS -->
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
 
 <body>
-  <div>
-    <form action="/api/addUser" method="post">
+    <div class="container">
+        <div class="row">
+          <div class="col-sm">
+          <form action="/api/addUser" method="post">
       <div class="input-group">
         <label for="email">Email</label>
         <input type="email" name="email" id="email" class="input-box" placeholder="" maxlength="100" value=''>
@@ -31,18 +35,37 @@
         <input type="number" name="age" id="age" class="input-box" placeholder="" value=''>
       </div>
 
-      <div class="input-field col s12">
-        <select multiple>
+ 
+      <div class="container"> 
+      
+          <div class="row">
+           <div class="input-field col s12">
+            <!-- <div class="col-lg"> -->
+              
+           <select multiple>
           <option value="" disabled selected>Choose your option</option>
           <option value="1">Politics</option>
           <option value="2">Music</option>
           <option value="3">Science</option>
-          <option value="3">Technology</option>
-          <option value="3">Sports</option>
+          <option value="4">Technology</option>
+          <option value="5">Sports</option>
         </select>
         <label>Materialize Multiple Select</label>
       </div>
-      <!-- <div class="dropdown">
+    </div>
+    </div>
+
+    <script>
+    function survey(){
+      if{
+        
+      }
+    }
+  </script>
+
+
+
+    <!-- <div class="dropdown">
           <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Categories
           <span class="caret"></span></button>
           <input type="dropdown" name="categories" id="categories"ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
@@ -52,13 +75,24 @@
             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Music</a></li>
             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Science</a></li>
           </ul>
-        </div> -->
+        </div>  -->
+        <div>
       <button type="submit" class="btn btn-reverse">submit</button>
+      </div>
     </form>
   </div>
-  <script type="text/javascript" src="js/materialize.min.js"></script>
+
+  <script>
+      $(document).ready(function(){
+    $('select').formSelect();
+  });
+    </script>
+    
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
 </body>
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
 
 </html>
