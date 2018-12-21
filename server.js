@@ -15,14 +15,39 @@ var PORT = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
 
 // index page
-app.get('/', function(req, res) {
-    res.render('pages/index');
-});
+// var politicsUrl= "https://newsapi.org/v2/everything?q=politics&apiKey=c774e4cd5e214a22b0ed485d8fd28386" 
+// app.get('/', function(req, res) {
+        
+//         res.render('pages/index', {
+//             politicsResponse: politicsResponse,
+            
+//     res.render('pages/index');
+//  });
+// });
+
 
 // politics page
+var politicsUrl= "https://newsapi.org/v2/everything?q=politics&apiKey=c774e4cd5e214a22b0ed485d8fd28386"
+var request = require('request');
 app.get('/politics', function(req, res) {
-    res.render('./politics');
+    var politicsresponse = [
+        app.get('/politics', function(req, res) {
+            request(politicsUrl, function(error, response, body) {
+              const info = JSON.parse(body);
+              res.render('pages/politics', { info }); 
+            });
+        })
+      ];
+       
+    res.render('pages/politics' , {
+        politicsresponse: politicsresponse
+    });
 });
+
+
+
+
+
 // Requiring our models for syncing
 // var db = require("./models");
 
