@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>About</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="../assets/style.css">
+</head>
+<body>
+       
+    <style>
+
+         #graph { font: 16px sans-serif;}
+            
+                .axis path,
+                .axis line {
+                  fill: none;
+                  stroke: #000;
+                  shape-rendering: crispEdges;
+                }
+              circle{
+                r: 0;
+              } 
+                .x.axis path {
+                  display: none;
+                }
+              .hoverIt{fill:#929fde; transition: fill 1s}
+              .leader{stroke:	#d4324c;}
+    </style>
+	<div class="main container-fluid d-flex no_padding">
+		<section class="menu col-1 no_padding">
+			<div class=" nav flex-column">
+				<div class="logo"></div>
+			<ul class="nav flex-column">
+				<li class="nav-item">
+				 <a class="nav-link" href="sport.html">Sport</a>
+				</li>
+				<li class="nav-item">
+				 <a class="nav-link" href="#">Technology</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="#">General</a>
+				</li>
+				<li class="nav-item">
+				 <a class="nav-link" href="#">Science</a>
+				</li>
+				<li class="nav-item">
+				 <a class="nav-link" href="#">Entertainment</a>
+				</li>
+				<li class="nav-item">
+				 <a class="nav-link" href="#">Buisiness</a>
+				</li>
+			</ul>
+			
+				<a href="about.html" class="contact_us">About Us</a>
+			
+			</div>
+		</section>
+		<section class="news col-11 no_padding graphContainer">
+		
+                <div id="graph"></div>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                    printer took a galley of type and scrambled it to make a type specimen book. It
+                    has survived not only five centuries, but also the leap into electronic typesetting, remaining
+                    essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+                    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+                    including versions of Lorem Ipsum.</p>
+        </section>
+    </div>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    
+    <script>    
+    var margin = {top: 20, right: 100, bottom: 30, left: 100},
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+    
+    var x = d3.scale.ordinal()
+        .rangeRoundPoints([0, width], .5);
+    
+    var y = d3.scale.ordinal()
+        .rangeRoundPoints([0, height], .5);
+    
+    var color = d3.scale.ordinal()
+      .range(["#de92c5","#f4a582","#d5d5d5","#92c5de","#0571b0", "#c5de92"]);
+    
+    var xAxis = d3.svg.axis()
+        .scale(x)
+        .tickSize(0);
+    
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        .orient("left"); 
+    
+    var svg = d3.select('#graph').append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
+     d3.json("static.json", function(error, data) {
+    
+         var categoriesAge = data.map(function(d) { return d.categoryAge; });
+      var categoriesNews = data[0].values.map(function(d) { return d.value; });
+      console.log(categoriesNews);
+      var radiusInput = data.map(function(d) { return d.amount;});
+      console.log(radiusInput);
+      
+      // var rScale= d3.scale.linear()
+      //   .domain(radiusInput)
+      //   .range([7,10]);
+    
+    x.domain(categoriesNews);
+    y.domain(categoriesAge);
+    
+      var slice = svg.selectAll(".slice")
+          .data(data)
+          .enter().append("g")
+          .attr("class", "g")
+          .style("fill", function(d) { return color(d.categoryAge) })
+          .attr("transform",function(d) { return "translate(" + x(d.values[0].value) +","+ y(d.categoryAge)+")"; });
+    
+          slice.selectAll("circle")
+          .data(function(d){ return d.values; })
+            .enter()
+          .append("circle")
+          .style("opacity", 0.8)
+          .attr("stroke-width", function(d) { return (d.amount * 0.2); })
+          .attr("r", function(d) { return d.amount})
+          .attr("cx", function(d) { return x(d.value)})
+          .attr("cy", function(d) { return y(d.categoryAge)})
+          .attr("class", function(d){var c=""; if(d.status){c="leader"}return c})
+          .on("mouseover", function(d) {
+            d3.select(this).classed("hoverIt", true)
+            .append("svg:title")
+            .text(function(d){return "Amount of people in this category: "+ d.amount})
+          })
+          .on("mouseout", function(d) {
+            d3.select(this).classed("hoverIt", false)
+            .select("text").remove();
+          });
+    
+          $("circle").each(function(el){
+            $(this).animate({r: $(this).attr("r")}, 700)       
+          })
+          svg.append("g")
+          .attr("class", "x axis")
+          .call(xAxis);
+    
+        svg.append("g")
+          .attr("class", "y axis")
+          .call(yAxis);
+    
+     })
+    </script>
+    
+</body>
+</html>

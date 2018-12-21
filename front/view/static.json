@@ -1,0 +1,224 @@
+[
+    {
+        "categoryAge": "under 18", 
+        "values": [
+            {
+                "amount":24,
+                "value": "Sports", 
+                "rate": 24
+            }, 
+            {
+                "amount":24,
+                "value": "Entertainment", 
+                "rate": 30
+            }, 
+            {
+                "amount":24,
+                "value": "Business", 
+                "rate": 35
+            }, 
+            {
+                "amount":24,
+                "value": "General", 
+                "rate": 37
+            }, 
+            {
+                "amount":24,
+                "value": "Science", 
+                "rate": 39
+            },
+             {
+                "amount":24,
+                "value": "Technology", 
+                "rate": 44,
+                "status":"leader"
+            }
+
+        ]
+    }, 
+      {
+        "categoryAge": "18-24", 
+        "values": [
+            {
+                "amount":40,
+                "value": "Sports", 
+                "rate": 40
+            }, 
+            {
+                "amount":40,
+                "value": "Entertainment", 
+                "rate": 49,
+                "status":"leader"
+            }, 
+            {
+                "amount":40,
+                "value": "Business", 
+                "rate": 50
+            }, 
+            {
+                "amount":40,
+                "value": "General", 
+                "rate": 42
+            }, 
+            {
+                "amount":40,
+                "value": "Science", 
+                "rate": 49
+            },
+             {
+                "amount":40,
+                "value": "Technology", 
+                "rate": 41
+            }
+
+        ]
+    }, 
+      {
+        "categoryAge": "25-34", 
+        "values": [
+            {
+                "amount":57,
+                "value": "Sports", 
+                "rate": 68,
+                "status":"leader"
+            }, 
+            {
+                "amount":57,
+                "value": "Entertainment", 
+                "rate": 65
+            }, 
+            {
+                "amount":57,
+                "value": "Business", 
+                "rate": 60
+            }, 
+            {
+                "amount":57,
+                "value": "General", 
+                "rate": 70
+            }, 
+            {
+                "amount":57,
+                "value": "Science", 
+                "rate": 59
+            },
+             {
+                "amount":57,
+                "value": "Technology", 
+                "rate": 57
+            }
+
+        ]
+    }, 
+      {
+        "categoryAge": "35-44", 
+        "values": [
+            {
+                "amount":50,
+                "value": "Sports", 
+                "rate": 55
+            }, 
+            {
+                "amount":50,
+                "value": "Entertainment", 
+                "rate": 59
+            }, 
+            {
+                "amount":50,
+                "value": "Business", 
+                "rate": 50
+            }, 
+            {
+                "amount":50,
+                "value": "General", 
+                "rate": 60
+            }, 
+            {
+                "amount":50,
+                "value": "Science", 
+                "rate": 69
+            },
+             {
+                "amount":50,
+                "value": "Technology", 
+                "rate": 67,
+                "status":"leader"
+            }
+
+        ]
+    },
+    {
+        "categoryAge": "45-54", 
+        "values": [
+            {
+                "amount":48,
+                "value": "Sports", 
+                "rate": 60,
+                "status":"leader"
+            }, 
+            {
+                "amount":48,
+                "value": "Entertainment", 
+                "rate": 59
+            }, 
+            {
+                "amount":48,
+                "value": "Business", 
+                "rate": 49
+            }, 
+            {
+                "amount":48,
+                "value": "General", 
+                "rate": 48
+            }, 
+            {
+                "amount":48,
+                "value": "Science", 
+                "rate": 50
+            },
+             {
+                "amount":48,
+                "value": "Technology", 
+                "rate": 55
+            }
+
+        ]
+    },
+    {
+        "categoryAge": "55 +", 
+        "values": [
+            {
+               "amount":18,
+                "value": "Sports", 
+                "rate": 20
+            }, 
+            {
+               "amount":18,
+                "value": "Entertainment", 
+                "rate": 25
+            }, 
+            {
+               "amount":18,
+                "value": "Business", 
+                "rate": 29
+            }, 
+            {
+               "amount":18,
+                "value": "General", 
+                "rate": 37
+            }, 
+            {
+               "amount":18,
+                "value": "Science", 
+                "rate": 18
+            },
+             {
+                "amount":18,
+                "value": "Technology", 
+                "rate": 30,
+                "status":"leader"
+            }
+
+        ]
+    }  
+]
