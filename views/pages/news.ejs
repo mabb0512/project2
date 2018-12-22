@@ -3,14 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>news</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="../assets/style.css">
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="/assets/style.css">
 </head>
 <body>
-
-		
-
 	<div class="main container-fluid d-flex no_padding">
 			<div class="o-lines_background">
 					<span class="o-lines-background_line"></span>
@@ -29,10 +28,10 @@
 			</div>
 		<section class="menu col-1 no_padding">
 			<div class=" nav flex-column">
-				<div class="logo"><a href="index.html">D-News</a></div>
+				<div class="logo"><a href="/">D-News</a></div>
 			<ul class="nav flex-column">
 				<li class="nav-item">
-				 <a class="nav-link" href="sport.html">Sports</a>
+				 <a class="nav-link" href="sport.html">Sport</a>
 				</li>
 				<li class="nav-item">
 				 <a class="nav-link" href="#">Technology</a>
@@ -51,18 +50,14 @@
 				</li>
 			</ul>
 			
-				<a href="about.html" class="contact_us">About Us</a>
+				<a href="/about" class="contact_us">About Us</a>
 			
 			</div>
 		</section>
 		<section class="news col-11 no_padding">
-		<div id="sportsnews"></div>
-		<div id="button">
-		<button id = "downvote">Down Vote</button>
-	    </div>
-		<div class="news_cat container-fluid d-flex no_padding">
+			<div class="news_cat container-fluid d-flex no_padding">
 				<div class="news_cat_text no_padding col-8">
-					<h1 class="firstH">Sport news</h1>
+					<h1 class="firstH">Important News</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem eaque molestiae porro, eum!</p>
 				</div>
 				<div class="news_cat_img no_padding col-4">
@@ -93,27 +88,4 @@
 		</section>
 	</div>
 
-	<script type='text/javascript'>
-
-		$('#downvote').on('click', function(){
-		  console.log("clicked submit");
-		  var queryURL = " https://newsapi.org/v2/everything?q=politics&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
-				console.log(queryURL);    
-		  
-				$.ajax({url:queryURL, method: 'GET'})
-					.done(function(response){
-						 console.log(response);
-						  var i = Math.floor(Math.random() * 21);
-						  console.log(i);  
-						  for(var i; i<5; i++){
-						 $('#sportsnews').append("<h3> "+response.articles[i].title+"</>");
-						 $('#sportsnews').append("<p>Article: "+response.articles[i].description+"</p>");
-						 $('#sportsnews').append("<img src='"+response.articles[i].urlToImage+"'>");
-					  
-						  }
-						 })
-				   });
-		
-		 </script>
 </body>
-</html>

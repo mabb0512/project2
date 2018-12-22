@@ -57,8 +57,8 @@ router.post("/api/addUser", function(req, res) {
         age: req.body.age,
         gender: req.body.age
     };
-    var category = 'health';
-    var categoryRanking = 4;
+    var selectedCategores = req.body.categories;
+    var categoryRanking = 3;
     var country = 'United States';
 
     db.User.create(user).then(function (dbUser) {
@@ -76,18 +76,22 @@ router.post("/api/addUser", function(req, res) {
         }
     }).then(function(){
 
-        db.Category.findOne({ 
-            where: {category_name: category} 
-        }).then(function(category){
+        // db.Category.findOne({ 
+        //     where: {category_name: category} 
+        // }).then(function(category){
+
+        for (var i = 0; i < selectedCategores.length; i ++) {
 
             db.UserCategory.create({
 
                 category_ranking: categoryRanking,
                 UserId: dbUsers[0],
-                CategoryId: category.id
+                CategoryId: selectedCategores[i]
 
-            })
-        })
+            });
+
+        }
+        // })
     }).then(function() {
 
         db.Country.findOne({
@@ -100,7 +104,8 @@ router.post("/api/addUser", function(req, res) {
                 CountryId: country.id
             });
         }).then(function(result){
-            res.json("User added succesfully with id " + dbUsers[0]);
+            //res.json("User added succesfully with id " + dbUsers[0]);
+            res.render('pages/news');
         });
     });;
 });
