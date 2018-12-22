@@ -1,23 +1,78 @@
-<section id="politics" class="container">
+<section id="politics" class="container"></section>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">    
    
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script type='text/javascript'>
-   
-
     
   <div class="jumbotron">
     
+    <div id = 'newsfeed'></div>
   
-  <div><%= politicsresponse %></div>
+  
+
+ 
 
    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
 </div>
 
-</script>
-</section>
+<!-- <div class= "apiresponse"><%= politicsresponse %></div> -->
 
+</section>
+<script type='text/javascript'>
+
+$('#tftextinput').on('click', function(){
+  console.log("clicked submit");
+  var queryURL = " https://newsapi.org/v2/everything?q=politics&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
+        console.log(queryURL);    
+  
+        $.ajax({url:queryURL, method: 'GET'})
+            .done(function(response){
+                 console.log(response);
+                  var i = Math.floor(Math.random() * 21);
+                  console.log(i);  
+                  for(var i; i<5; i++){
+                 $('#newsfeed').append("<h3> "+response.articles[i].title+"</>");
+                 $('#newsfeed').append("<p>Article: "+response.articles[i].description+"</p>");
+                 $('#newsfeed').append("<img src='"+response.articles[i].urlToImage+"'>");
+              
+            
+           }
+
+ </script>
+// var request = require('request');
+// var express = require("express");
+// var politicsUrl = "https://newsapi.org/v2/everything?q=politics&apiKey=c774e4cd5e214a22b0ed485d8fd28386"
+
+
+// request('politicsUrl', function (error, response, body) {
+//   if (!error && response.statusCode == 200) {
+//     console.log(body)
+//     console.log(response) // Print the google web page.
+//   }
+// }) -->
+
+//  $(function() {
+//     var politicsresponse = $('.apiresponse').html();
+//     console.log(politicsresponse); 
+//    });
+
+//   var poliresponse = $('.apiresponse').text();
+//   var jsonarticles=poliresponse; 
+//   console.log(poliresponse[6]);
+
+// // for(var x = 1; x < poliresponse.articles.length; x++){
+// // console.log(poliresponse.articles);
+// // }
+//   for(var i; i<10; i++){
+    
+//   $('#newsfeed').append("<h3> "+poliresponse[0].articles[i].title+"</>");
+//   $('#newsfeed').append("<p>Article: "+poliresponse[0].articles[i].description+"</p>");
+//   $('#newsfeed').append("<img src='"+poliresponse[0].articles[i].urlToImage+"'>");
+   
+// };
+
+ 
+    
 
 
 

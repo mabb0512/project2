@@ -5,8 +5,12 @@
 	<title>news</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="../assets/style.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
+
+		
+
 	<div class="main container-fluid d-flex no_padding">
 			<div class="o-lines_background">
 					<span class="o-lines-background_line"></span>
@@ -52,7 +56,11 @@
 			</div>
 		</section>
 		<section class="news col-11 no_padding">
-			<div class="news_cat container-fluid d-flex no_padding">
+		<div id="sportsnews"></div>
+		<div id="button">
+		<button id = "downvote">Down Vote</button>
+	    </div>
+		<div class="news_cat container-fluid d-flex no_padding">
 				<div class="news_cat_text no_padding col-8">
 					<h1 class="firstH">Sport news</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem eaque molestiae porro, eum!</p>
@@ -84,5 +92,29 @@
 			</div>			
 		</section>
 	</div>
+
+	<script type='text/javascript'>
+
+		$('#downvote').on('click', function(){
+		  console.log("clicked submit");
+		  var queryURL = " https://newsapi.org/v2/everything?q=sports&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
+				console.log(queryURL);    
+		  
+				$.ajax({url:queryURL, method: 'GET'})
+					.done(function(response){
+						 console.log(response);
+						  var i = Math.floor(Math.random() * 21);
+						  console.log(i);  
+						  for(var i; i<5; i++){
+						 $('#sportsnews').append("<h3> "+response.articles[i].title+"</>");
+						 $('#sportsnews').append("<p>Article: "+response.articles[i].description+"</p>");
+						 $('#sportsnews').append("<img src='"+response.articles[i].urlToImage+"'>");
+						 $('#sportsnews').append("<img src='"+response.articles[i].urlToImage+"'>");
+					  
+						  }
+						 })
+				   });
+		
+		 </script>
 </body>
 </html>

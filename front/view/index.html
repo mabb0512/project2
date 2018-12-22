@@ -5,8 +5,12 @@
 	<title>news</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="../assets/style.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
+	
+	
+
 	<div class="main container-fluid d-flex no_padding">
 			<div class="o-lines_background">
 					<span class="o-lines-background_line"></span>
@@ -84,5 +88,27 @@
 			</div>			
 		</section>
 	</div>
+
+	<script type='text/javascript'>
+
+		$('#downvote').on('click', function(){
+		  console.log("clicked submit");
+		  var queryURL = " https://newsapi.org/v2/everything?q=politics&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
+				console.log(queryURL);    
+		  
+				$.ajax({url:queryURL, method: 'GET'})
+					.done(function(response){
+						 console.log(response);
+						  var i = Math.floor(Math.random() * 21);
+						  console.log(i);  
+						  for(var i; i<5; i++){
+						 $('#newsfeed').append("<h3> "+response.articles[i].title+"</>");
+						 $('#newsfeed').append("<p>Article: "+response.articles[i].description+"</p>");
+						 $('#newsfeed').append("<img src='"+response.articles[i].urlToImage+"'>");
+					  
+					
+				   }
+		
+		 </script>
 </body>
 </html>
