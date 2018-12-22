@@ -70,7 +70,7 @@ h1.moveHeaderRight{
 	font-size: 40px;
 }
 
-.img1, .img2, .img3{
+.img1, .img2, .img3, .img4{
 	background-color: #cccccc;
 	background-position: center; 
 	background-repeat: no-repeat; 
@@ -81,6 +81,7 @@ h1.moveHeaderRight{
 .img1{background-image: url("img/img_1.jpg");}
 .img2{background-image: url("img/img_2.jpg");}
 .img3{background-image: url("img/img_3.jpg");}
+.img4{background-image: url("img/img4.jpg");}
 
 
 .nav-link, a.contact_us{padding: 2px; font-weight: bold;}
