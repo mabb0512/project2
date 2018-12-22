@@ -14,7 +14,7 @@ var config = {
     "dialect": "mysql"
   },
   "production": {
-    "use_env_variable":"x3ztd854gaa7on6s.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "host":"x3ztd854gaa7on6s.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "database": "moy34g2efz3achlq",
     "dialect": "mysql",
     "username": "b9xmzlxt38e1s5ys",
