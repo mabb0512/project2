@@ -122,7 +122,7 @@ div#sportsnews {
 						 $('#sportsnews').append("<h3> "+response.articles[i].title+"</>");
 						 $('#sportsnews').append("<p>Article: "+response.articles[i].description+"</p>");
 						 $('#sportsnews').append("<img src='"+response.articles[i].urlToImage+"'>");
-						 $('#sportsnews').append("<a><href="+response.articles[i].url+"></a>");
+						 $('#sportsnews').append("<a href="+response.articles[i].url+">" +response.articles[i].url+"</a>");
 					  
 						  }
 						 })
