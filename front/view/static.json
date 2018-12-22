@@ -40,28 +40,28 @@
         "categoryAge": "18-24", 
         "values": [
             {
-                "amount":40,
+                "amount":43,
                 "value": "Sports", 
                 "rate": 40
             }, 
             {
-                "amount":40,
+                "amount":43,
                 "value": "Entertainment", 
                 "rate": 49,
                 "status":"leader"
             }, 
             {
-                "amount":40,
+                "amount":43,
                 "value": "Business", 
                 "rate": 50
             }, 
             {
-                "amount":40,
+                "amount":43,
                 "value": "General", 
                 "rate": 42
             }, 
             {
-                "amount":40,
+                "amount":43,
                 "value": "Science", 
                 "rate": 49
             },
@@ -114,32 +114,32 @@
         "categoryAge": "35-44", 
         "values": [
             {
-                "amount":50,
+                "amount":22,
                 "value": "Sports", 
                 "rate": 55
             }, 
             {
-                "amount":50,
+                "amount":22,
                 "value": "Entertainment", 
                 "rate": 59
             }, 
             {
-                "amount":50,
+                "amount":22,
                 "value": "Business", 
                 "rate": 50
             }, 
             {
-                "amount":50,
+                "amount":22,
                 "value": "General", 
                 "rate": 60
             }, 
             {
-                "amount":50,
+                "amount":22,
                 "value": "Science", 
                 "rate": 69
             },
              {
-                "amount":50,
+                "amount":22,
                 "value": "Technology", 
                 "rate": 67,
                 "status":"leader"
