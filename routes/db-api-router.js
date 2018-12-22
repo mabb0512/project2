@@ -105,7 +105,16 @@ router.post("/api/addUser", function(req, res) {
             });
         }).then(function(result){
             //res.json("User added succesfully with id " + dbUsers[0]);
-            res.render('pages/news');
+
+            console.log(selectedCategores[0]);
+            db.Category.findOne({ 
+            where: {id: selectedCategores[0]} 
+        }).then(function(category){
+            console.log(category.category_name);
+            res.render('pages/' + category.category_name);
+        })
+
+
         });
     });;
 });
