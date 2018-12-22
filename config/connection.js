@@ -5,7 +5,7 @@
 // Dependencies
 var Sequelize = require('sequelize');
 var config = require('./config.js');
-var devConf = config.development;
+var devConf = config.production;
 
 // Creates mySQL connection using Sequelize, the empty string in the third argument spot is our password.
 var sequelize = new Sequelize(devConf.database, devConf.username, devConf.password, {
