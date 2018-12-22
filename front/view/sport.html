@@ -97,7 +97,7 @@
 
 		$('#downvote').on('click', function(){
 		  console.log("clicked submit");
-		  var queryURL = " https://newsapi.org/v2/everything?q=politics&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
+		  var queryURL = " https://newsapi.org/v2/everything?q=sports&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
 				console.log(queryURL);    
 		  
 				$.ajax({url:queryURL, method: 'GET'})
@@ -108,6 +108,7 @@
 						  for(var i; i<5; i++){
 						 $('#sportsnews').append("<h3> "+response.articles[i].title+"</>");
 						 $('#sportsnews').append("<p>Article: "+response.articles[i].description+"</p>");
+						 $('#sportsnews').append("<img src='"+response.articles[i].urlToImage+"'>");
 						 $('#sportsnews').append("<img src='"+response.articles[i].urlToImage+"'>");
 					  
 						  }
