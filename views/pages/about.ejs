@@ -45,10 +45,10 @@
 			</div>
 		<section class="menu col-1 no_padding">
 			<div class=" nav flex-column">
-          <div class="logo"><a href="index.html">D-News</a></div>>
+          <div class="logo"><a href="index.html">Dy-News</a></div>>
 			<ul class="nav flex-column">
 				<li class="nav-item">
-				 <a class="nav-link" href="sport.html">Sport</a>
+				 <a class="nav-link" href="sport.html">Sports</a>
 				</li>
 				<li class="nav-item">
 				 <a class="nav-link" href="#">Technology</a>
@@ -73,7 +73,7 @@
 		</section>
 		<section class="news col-11 no_padding graphContainer">
       
-      <h1>Our readers by age categories</h1>         
+      <h1>About us</h1>         
       <div class="data d-flex">
       <div id="graph"></div>
       <div class="explain">
@@ -89,14 +89,9 @@
           </figure>
       </div>
       </div>
-
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a type specimen book. It
-                    has survived not only five centuries, but also the leap into electronic typesetting, remaining
-                    essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-                    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
-                    including versions of Lorem Ipsum.</p>
+                <p>Dy-news is a dynamic news platform. Our users can sort news categories up to their preferances and rate their priority.
+                  The graph represents the age categories of our users, their propotions, and also shows the most popular news categories.
+                </p>
         </section>
     </div>
 
@@ -140,9 +135,9 @@
       var radiusInput = data.map(function(d) { return d.amount;});
       console.log(radiusInput);
       
-      // var rScale= d3.scale.linear()
-      //   .domain(radiusInput)
-      //   .range([7,10]);
+      var rScale= d3.scale.linear()
+        .domain(radiusInput)
+        .range([5,20]);
     
     x.domain(categoriesNews);
     y.domain(categoriesAge);
@@ -160,7 +155,7 @@
           .append("circle")
           .style("opacity", 0.8)
           .attr("stroke-width", function(d) { return (d.amount * 0.2); })
-          .attr("r", function(d) { return d.amount})
+          .attr("r", function(d) { return rScale(d.amount)})
           .attr("cx", function(d) { return x(d.value)})
           .attr("cy", function(d) { return y(d.categoryAge)})
           .attr("class", function(d){var c=""; if(d.status){c="leader"}return c})
