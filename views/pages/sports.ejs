@@ -1,21 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+	<meta charset="UTF-8">
+	<title>news</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="../assets/style.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 
-    
-<div id="sports_container">
-  <div class="inner">
-    
-  </div>
-    
+		
 
+	<div class="main container-fluid d-flex no_padding">
+			<div class="o-lines_background">
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+					<span class="o-lines-background_line"></span>
+			</div>
+		<section class="menu col-1 no_padding">
+			<div class=" nav flex-column">
+				<div class="logo"><a href="index.html">D-News</a></div>
+			<ul class="nav flex-column">
+				<li class="nav-item">
+				 <a class="nav-link" href="sports.html">Sports</a>
+				</li>
+				<li class="nav-item">
+				 <a class="nav-link" href="#">Technology</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" href="#">General</a>
+				</li>
+				<li class="nav-item">
+				 <a class="nav-link" href="#">Science</a>
+				</li>
+				<li class="nav-item">
+				 <a class="nav-link" href="#">Entertainment</a>
+				</li>
+				<li class="nav-item">
+				 <a class="nav-link" href="#">Buisiness</a>
+				</li>
+			</ul>
+			
+				<a href="about.html" class="contact_us">About Us</a>
+			
+			</div>
+		</section>
+		<section class="news col-11 no_padding">
+		<div id="sportsnews"></div>
+		<div id="button">
+		<button id = "downvote">Down Vote</button>
+		<button id = "reset">Reset</button>
+	    </div>
+		<div class="news_cat container-fluid d-flex no_padding">
+				<div class="news_cat_text no_padding col-8">
+					<h1 class="firstH">Sport news</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem eaque molestiae porro, eum!</p>
+				</div>
+				<div class="news_cat_img no_padding col-4">
+						<div class="img1"></div>
+				</div>
+			</div>
+
+			<div class="news_cat container-fluid d-flex no_padding">
+				<div class="news_cat_img no_padding col-8">
+						<div class="img2"></div>
+				</div>
+				<div class="news_cat_text no_padding col-4">
+						<h1 class="moveHeaderLeft">You also would like this</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem eaque molestiae porro, eum! </p>
+					<p class="subtext">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+				</div>
+			</div>
+
+			<div class="news_cat container-fluid d-flex no_padding">
+				<div class="news_cat_text no_padding col-3">
+					<h1>Check it</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem eaque molestiae porro, eum! Porro consectetur in sint alias nulla, tempora beatae dolores, nisi culpa enim a temporibus aspernatur quas, non!</p>
+				</div>
+				<div class="news_cat_img no_padding col-9">
+					<div class="img3"></div>
+				</div>
+			</div>			
+		</section>
+	</div>
+
+	<script type='text/javascript'>
+
+		$('#downvote').on('click', function(){
+		  console.log("clicked submit");
+		  var queryURL = " https://newsapi.org/v2/everything?q=sports&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
+				console.log(queryURL);    
+		  
+				$.ajax({url:queryURL, method: 'GET'})
+					.done(function(response){
+						 console.log(response);
+						  var i = Math.floor(Math.random() * 21);
+						  console.log(i);  
+						  for(var i; i<response.articles.length; i++){
+						 $('#sportsnews').append("<h3> "+response.articles[i].title+"</>");
+						 $('#sportsnews').append("<p>Article: "+response.articles[i].description+"</p>");
+						 $('#sportsnews').append("<img src='"+response.articles[i].urlToImage+"'>");
+						 $('#sportsnews').append(response.articles[i].url);
+					  
+						  }
+						 })
+				   });
+		
+$('#reset').on('click', function(){
+   console.log("clicked reset");
+        $("#sportsnews").empty("");
+        
+      })
+
+		 </script>
 </body>
 </html>

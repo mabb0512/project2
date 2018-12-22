@@ -56,14 +56,14 @@
 			</div>
 		</section>
 		<section class="news col-11 no_padding">
-		<div id="technews"></div>
+		<div id="entnews"></div>
 		<div id="button">
 		<button id = "downvote">Down Vote</button>
 		<button id = "reset">Reset</button>
 	    </div>
 		<div class="news_cat container-fluid d-flex no_padding">
 				<div class="news_cat_text no_padding col-8">
-					<h1 class="firstH">Tech news</h1>
+					<h1 class="firstH">Entertainment news</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem eaque molestiae porro, eum!</p>
 				</div>
 				<div class="news_cat_img no_padding col-4">
@@ -98,7 +98,7 @@
 
 		$('#downvote').on('click', function(){
 		  console.log("clicked submit");
-		  var queryURL = " https://newsapi.org/v2/everything?q=technology&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
+		  var queryURL = " https://newsapi.org/v2/everything?q=entertainment&apiKey=c774e4cd5e214a22b0ed485d8fd28386";
 				console.log(queryURL);    
 		  
 				$.ajax({url:queryURL, method: 'GET'})
@@ -107,10 +107,10 @@
 						  var i = Math.floor(Math.random() * 21);
 						  console.log(i);  
 						  for(var i; i<response.articles.length; i++){
-						 $('#technews').append("<h3> "+response.articles[i].title+"</>");
-						 $('#technews').append("<p>Article: "+response.articles[i].description+"</p>");
-						 $('#technews').append("<img src='"+response.articles[i].urlToImage+"'>");
-						 $('#technews').append(response.articles[i].url);
+						 $('#entnews').append("<h3> "+response.articles[i].title+"</>");
+						 $('#entnews').append("<p>Article: "+response.articles[i].description+"</p>");
+						 $('#entnews').append("<img src='"+response.articles[i].urlToImage+"'>");
+						 $('#entnews').append(response.articles[i].url);
 					  
 						  }
 						 })
@@ -118,7 +118,7 @@
 		
 $('#reset').on('click', function(){
    console.log("clicked reset");
-        $("#technews").empty("");
+        $("#entnews").empty("");
         
       })
 

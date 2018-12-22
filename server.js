@@ -10,11 +10,26 @@ var express = require("express");
 // =============================================================
 var app = express();
 var PORT = process.env.PORT || 3000;
-
+require('dotenv').config();
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
 // index page
+
+// var http = require('http'),
+//     fs = require('fs');
+
+
+// fs.readFile('./index.html', function (err, html) {
+//     if (err) {
+//         throw err; 
+//     }       
+//     http.createServer(function(request, response) {  
+//         response.writeHeader(200, {"Content-Type": "text/html"});  
+//         response.write(html);  
+//         response.end();  
+//     }).listen(8000);
+// });
 // var politicsUrl= "https://newsapi.org/v2/everything?q=politics&apiKey=c774e4cd5e214a22b0ed485d8fd28386" 
 // app.get('/', function(req, res) {
         
@@ -29,13 +44,13 @@ app.set('view engine', 'ejs');
 // politics page
 // var politicsUrl= "https://newsapi.org/v2/everything?q=politics&apiKey=c774e4cd5e214a22b0ed485d8fd28386"
 // var request = require('request');
-app.get('/politics', function(req, res) {
+// app.get('/politics', function(req, res) {
 //     var politicsresponse = [
 //         app.get('/politics', function(req, res) {
 //             request(politicsUrl, function(error, response, body) {
 //               const info = JSON.parse(body);
-              res.render('pages/politics');
-             });
+//               res.render('pages/politics');
+//              });
 //         })
 //       ];
        
