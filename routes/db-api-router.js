@@ -104,7 +104,8 @@ router.post("/api/addUser", function(req, res) {
                 CountryId: country.id
             });
         }).then(function(result){
-            res.json("User added succesfully with id " + dbUsers[0]);
+            //res.json("User added succesfully with id " + dbUsers[0]);
+            res.render('pages/news');
         });
     });;
 });
