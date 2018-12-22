@@ -12,7 +12,8 @@ div.nav.flex-column {
     z-index: 0;
     justify-content: space-between;
     height: 100vh;
-    width: 8.333333vw;
+	width: 8.333333vw;
+	background-color: rgb(146, 197, 222);
 }
 .news_cat_img{
 	height: 80vh;
