@@ -59,6 +59,7 @@
 		<div id="sportsnews"></div>
 		<div id="button">
 		<button id = "downvote">Down Vote</button>
+		<button id = "reset">Reset</button>
 	    </div>
 		<div class="news_cat container-fluid d-flex no_padding">
 				<div class="news_cat_text no_padding col-8">
@@ -105,16 +106,22 @@
 						 console.log(response);
 						  var i = Math.floor(Math.random() * 21);
 						  console.log(i);  
-						  for(var i; i<5; i++){
+						  for(var i=1; i<6; i++){
 						 $('#sportsnews').append("<h3> "+response.articles[i].title+"</>");
 						 $('#sportsnews').append("<p>Article: "+response.articles[i].description+"</p>");
 						 $('#sportsnews').append("<img src='"+response.articles[i].urlToImage+"'>");
-						 $('#sportsnews').append("<img src='"+response.articles[i].urlToImage+"'>");
+						 $('#sportsnews').append(response.articles[i].url);
 					  
 						  }
 						 })
 				   });
 		
+$('#reset').on('click', function(){
+   console.log("clicked reset");
+        $("#newsfeed").empty("");
+        
+      })
+
 		 </script>
 </body>
 </html>
