@@ -8,6 +8,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="/assets/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
 	<div class="main container-fluid d-flex no_padding">
@@ -28,21 +29,22 @@
 			</div>
 		<section class="menu col-1 no_padding">
 			<div class=" nav flex-column">
-				<div class="logo"><a href="/">Dy-News</a></div>
-				<ul class="nav flex-column">
-					<li class="nav-item">
-					 <a class="nav-link" href="/sports">Sport</a>
-					</li>
-					<li class="nav-item">
-					 <a class="nav-link" href="/technology">Technology</a>
-					</li>
-					<li class="nav-item">
-					 <a class="nav-link" href="/science">Science</a>
-					</li>
-					<li class="nav-item">
-					 <a class="nav-link" href="/entertainment">Entertainment</a>
-					</li>
-				</ul>
+				<!--<div class="logo"><a href="/">Dy-News</a></div>-->
+				<div class="logo"><a href="/"><img src="/assets/img/image.png" alt=""></a></div>
+			<ul class="nav flex-column">
+				<li class="nav-item">
+				 <a class="nav-link" href="/sports">Sport</a>
+				</li>
+				<li class="nav-item">
+				 <a class="nav-link" href="/technology">Technology</a>
+				</li>
+				<li class="nav-item">
+				 <a class="nav-link" href="/science">Science</a>
+				</li>
+				<li class="nav-item">
+				 <a class="nav-link" href="/entertainment">Entertainment</a>
+				</li>
+			</ul>
 			
 				<a href="/about" class="contact_us">About Us</a>
 			
@@ -81,5 +83,15 @@
 			</div>			
 		</section>
 	</div>
-
+	  
 </body>
+
+<script>
+	$(document).ready(function(){
+  $('select').formSelect();
+});
+  </script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</html>
